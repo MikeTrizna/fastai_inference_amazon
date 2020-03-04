@@ -1,0 +1,12 @@
+name: fastai_cpu
+channels:
+  - conda-forge
+  - pytorch
+  - fastai
+dependencies:
+  - pillow
+  - pytorch
+  - torchvision
+  - cpuonly
+  - fastai
+  - notebook

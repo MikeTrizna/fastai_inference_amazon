@@ -1,0 +1,25 @@
+# /bin/sh
+# ----------------Parameters---------------------- #
+#$ -S /bin/sh
+#$ -pe mthread 10
+#$ -q sThM.q
+#$ -l mres=200G,h_data=20G,h_vmem=20G,himem
+#$ -cwd
+#$ -j y
+#$ -N classify_2019_november
+#$ -o classify_2019_november.log
+#
+# ----------------Modules------------------------- #
+#
+module load ~/modulefiles/miniconda
+source activate fastai_gpu
+#
+# ----------------Your Commands------------------- #
+#
+echo + `date` job $JOB_NAME started in $QUEUE with jobID=$JOB_ID on $HOSTNAME
+echo + NSLOTS = $NSLOTS
+#
+python fish_classifier.py -d /data/genomics/triznam/amazon_fish -o november_2019_results.tsv
+#
+echo = `date` job $JOB_NAME done
+
